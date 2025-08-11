@@ -1,27 +1,27 @@
 {
-  "name": "PortalEcza.Client",
+  "name": "ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/PortalEcza.Client/src",
+  "sourceRoot": "apps/ui/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/PortalEcza.Client",
-        "browser": "apps/PortalEcza.Client/src/main.ts",
+        "outputPath": "dist/apps/ui",
+        "browser": "apps/ui/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/PortalEcza.Client/tsconfig.app.json",
+        "tsConfig": "apps/ui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/PortalEcza.Client/public"
+            "input": "apps/ui/public"
           }
         ],
-        "styles": ["apps/PortalEcza.Client/src/styles.scss"]
+        "styles": ["apps/ui/src/styles.scss"]
       },
       "configurations": {
         "production": {
@@ -52,10 +52,10 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "PortalEcza.Client:build:production"
+          "buildTarget": "ui:build:production"
         },
         "development": {
-          "buildTarget": "PortalEcza.Client:build:development"
+          "buildTarget": "ui:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -63,7 +63,7 @@
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",
       "options": {
-        "buildTarget": "PortalEcza.Client:build"
+        "buildTarget": "ui:build"
       }
     },
     "lint": {
@@ -73,8 +73,8 @@
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "PortalEcza.Client:build",
-        "staticFilePath": "dist/apps/PortalEcza.Client/browser",
+        "buildTarget": "ui:build",
+        "staticFilePath": "dist/apps/ui/browser",
         "spa": true
       }
     }
