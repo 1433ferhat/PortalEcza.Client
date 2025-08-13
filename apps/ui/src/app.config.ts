@@ -10,6 +10,10 @@ import { registerLocaleData } from '@angular/common';
 import localeTr from '@angular/common/locales/tr';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { endpointInterceptorUi } from '@shared/interceptors/endpoint-interceptor.ui';
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+
+ModuleRegistry.registerModules([AllCommunityModule]);
+
 registerLocaleData(localeTr);
 
 export const appConfig: ApplicationConfig = {

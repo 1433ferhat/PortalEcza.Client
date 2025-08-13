@@ -7,8 +7,7 @@ export const endpointInterceptorUi: HttpInterceptorFn = (req, next) => {
 
   const token = localStorage.getItem('token');
   const clone = req.clone({
-    url: req.url.replace('api/', 'http://localhost:5001/api/'),
-    // url: req.url.replace('api/', 'http://localhost:60805/api/'),
+    url: req.url.replace('api/', 'http://localhost:60805/api/'),
     setHeaders: {
       Authorization: `Bearer ${token}`,
     },
