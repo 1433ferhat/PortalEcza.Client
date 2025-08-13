@@ -1,0 +1,72 @@
+<mat-toolbar class="header-toolbar">
+  <div class="header-container">
+    <div class="header-left">
+      <a routerLink="/" class="logo">
+        <span class="logo-text">farmazon</span>
+      </a>
+      
+      <nav class="main-nav">
+        <a mat-button routerLink="/medikal">Medikal</a>
+        <a mat-button routerLink="/kisisel-bakim">Kişisel Bakım</a>
+        <a mat-button routerLink="/besin-takviyesi">Besin Takviyesi</a>
+        <a mat-button routerLink="/saglik">Sağlık</a>
+        <a mat-button routerLink="/anne-bebek">Anne & Bebek</a>
+        <a mat-button routerLink="/sarf-malzemeleri">Sarf Malzemeleri</a>
+        <a mat-button routerLink="/outlet">Outlet</a>
+      </nav>
+    </div>
+
+    <div class="search-container">
+      <mat-form-field appearance="outline" class="search-field">
+        <input matInput 
+               placeholder="Ürün adı, barkod, marka veya üye ara" 
+               >
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="header-right">
+      @if (!isLoggedIn()) {
+        <button mat-raised-button class="login-button">
+          Üyelere Özel Fiyat
+        </button>
+      } @else {
+        <button mat-icon-button>
+          <mat-icon>person</mat-icon>
+        </button>
+      }
+
+      <button mat-icon-button 
+              [matBadge]="cartCount()"
+              matBadgeColor="warn">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+
+      <div class="lang-selector">
+        <img src="assets/tr-flag.svg" alt="TR">
+        <span>TR</span>
+      </div>
+
+      <div class="user-info">
+        <span class="username">yeredakdemo</span>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<div class="sub-header">
+  <div class="sub-header-container">
+    <div class="tabs">
+      <button mat-button class="tab active">İlaçlarım</button>
+      <button mat-button class="tab">Siparişlerim</button>
+      <button mat-button class="tab">Bağışlarım</button>
+      <button mat-button class="tab">Hesap Hareketlerim</button>
+      <button mat-button class="tab">Ayarlarım & Bilgilerim</button>
+    </div>
+    
+    <div class="company-badge">
+      <mat-icon>apartment</mat-icon>
+      <span>DEVVİTRİN</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="product-list-container">
+    <div class="page-header">
+        <div class="breadcrumb">
+            <span>Anasayfa</span>
+            <mat-icon>chevron_right</mat-icon>
+            <span>İlaçlarım</span>
+        </div>
+
+        <div class="header-actions">
+            <div class="title-section">
+                <h1>İlan Ekle</h1>
+                <span class="product-count">Ürün Adı</span>
+            </div>
+
+            <div class="action-buttons">
+                <mat-form-field appearance="outline" class="sort-select">
+                    <mat-label>Güncellenme Tarihi</mat-label>
+                    <mat-select>
+                        <mat-option value="date">Güncellenme Tarihi</mat-option>
+                        <mat-option value="name">İsme Göre</mat-option>
+                        <mat-option value="price">Fiyata Göre</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button mat-raised-button class="profile-btn">
+                    Satış Profilimi Gör
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-tabs">
+        <mat-chip-listbox>
+            <mat-chip-option selected>İlaçlarım</mat-chip-option>
+            <mat-chip-option>Siparişlerim</mat-chip-option>
+            <mat-chip-option>Bağışlarım</mat-chip-option>
+            <mat-chip-option>Hesap Hareketlerim</mat-chip-option>
+            <mat-chip-option>Ayarlarım & Bilgilerim</mat-chip-option>
+        </mat-chip-listbox>
+    </div>
+
+    <div class="info-banner">
+        <mat-icon>info</mat-icon>
+        <div class="info-content">
+            <strong>Yeni Kargo Payı Sistemi!</strong>
+            <p>3 Nisan itibariyle tüm satışlarınızda desi bazına göre bir tutar, hak edişlerinizden düşülecek.</p>
+            <p>Ürün kazında maliyetlerinizi hesaplayabilmek için size özel hazırladığımız sayfayı inceleyebilirsiniz.
+            </p>
+        </div>
+        <button mat-button>Nasıl Hesaplanır?</button>
+    </div>
+
+    <div class="products-table-container">
+        <table class="products-table">
+            <thead>
+                <tr>
+                    <th>
+                        <mat-checkbox></mat-checkbox>
+                    </th>
+                    <th>Ürün Adı</th>
+                    <th>Barkod</th>
+                    <th>Miat</th>
+                    <th>Stok</th>
+                    <th>Fiyat</th>
+                    <th>KDV</th>
+                    <th>Miat</th>
+                    <th>Stok</th>
+                    <th>Fiyat</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (product of products(); track product.id) {
+                <tr>
+                    <td>
+                        <mat-checkbox></mat-checkbox>
+                    </td>
+                    <td class="product-cell">
+                        <div class="product-info">
+                            <div class="product-image">
+                                <mat-icon>medication</mat-icon>
+                            </div>
+                            <div class="product-details">
+                                <span class="product-name">{{ product.name }}</span>
+                                <span class="product-status">{{ product.manufacturer }}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="barcode">{{ product.barcode }}</span>
+                    </td>
+                    <td>
+                        <mat-form-field appearance="outline" class="date-field">
+                            <input matInput type="month" [value]="product.expiry">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <input type="number" class="stock-input" [value]="product.stock">
+                    </td>
+                    <td>
+                        <input type="number" class="price-input" [value]="product.price" step="0.01">
+                    </td>
+                    <td>
+                        <div class="vat-info">
+                            <span class="vat-value">%{{ product.vat }}</span>
+                            <span class="vat-label">Hasta Bildeli</span>
+                        </div>
+                    </td>
+                    <td>
+                        <mat-form-field appearance="outline" class="date-field">
+                            <input matInput type="month" [value]="product.expiry">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <input type="number" class="stock-input" [value]="product.stock">
+                    </td>
+                    <td>
+                        <input type="number" class="price-input" [value]="product.price" step="0.01">
+                    </td>
+                    <td>
+                        <button mat-raised-button color="primary" class="add-btn">
+                            İlan Ekle
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <mat-paginator [length]="100" [pageSize]="pageSize" [pageSizeOptions]="[10, 25, 50, 100]">
+        </mat-paginator>
+    </div>
+</div>
