@@ -1,0 +1,20 @@
+<!-- apps/ui/src/pages/listings/listings.html -->
+<div class="listings-container">
+  <mat-card class="listings-card">
+    <mat-card-header>
+      <mat-card-title>İlanlarım</mat-card-title>
+      <div class="header-actions">
+        <app-listing-create />
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="grid-wrapper">
+        <ag-grid-angular class="ag-theme-material" [rowData]="listings()" [columnDefs]="columnDefs"
+          [defaultColDef]="defaultColDef" [pagination]="true" [paginationPageSize]="20" [animateRows]="true"
+          [rowHeight]="50" (gridReady)="onGridReady($event)" (cellClicked)="onCellClicked($event)">
+        </ag-grid-angular>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

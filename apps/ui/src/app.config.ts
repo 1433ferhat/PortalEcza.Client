@@ -11,6 +11,7 @@ import localeTr from '@angular/common/locales/tr';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { endpointInterceptorUi } from '@shared/interceptors/endpoint-interceptor.ui';
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+import { provideNgxMask } from 'ngx-mask';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
+    provideNgxMask(),
     provideHttpClient(withInterceptors([endpointInterceptorUi])),
     { provide: LOCALE_ID, useValue: 'tr' },
   ],
